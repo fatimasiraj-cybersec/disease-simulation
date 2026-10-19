@@ -1,32 +1,36 @@
 # Disease Simulation
 
-An agent-based simulation modelling the spread of disease across a 
-2D population grid, written in Python. The simulation tracks five 
-health states (healthy, infected, recovered, immune, dead) and 
-supports configurable movement rules, barriers, and real-time 
-visualisation.
+An agent-based simulation modelling the spread of disease across a 2D population grid. Tracks five health states (healthy, infected, recovered, immune, dead) with configurable movement rules, barriers, and automated parameter sweeps.
 
 ## Features
 - Moore & Von Neumann neighbourhood movement rules
-- Five health states: healthy, infected, recovered, immune, dead
-- Configurable recovery, death, and immunity rates
-- Barriers that block disease spread across the grid
+- Five health states with configurable recovery, death, and immunity rates
+- Barriers that block movement and constrain spread
 - Real-time scatter-plot visualisation per month
-- Monthly statistics printed to console
-- Interactive CLI for setting simulation parameters
+- Automated parameter sweep (`experiments.py`) to measure peak infection rates across population sizes and neighbourhood types
+- Uses binomial distributions for realistic infection/recovery spread
 
 ## Tech Stack
 Python 3 · NumPy · Matplotlib
 
-## How to Run
+## How to Run ? 
 
-```bash
-# Clone the repository
+First, clone the repository and install the required dependencies:
+
 git clone https://github.com/fatimasiraj-cybersec/disease-simulation.git
 cd disease-simulation
-
-# Install dependencies
 pip install -r requirements.txt
 
-# Run the simulation
+To run a single interactive simulation:
+
 python Disease_Simulation.py
+
+To run the automated parameter sweep:
+
+python experiments.py
+
+## Output
+The simulation prints monthly statistics to the console and generates scatter plots (simulation_month_X.png) showing the spatial distribution of each health status.
+
+## License
+MIT
